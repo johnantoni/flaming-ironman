@@ -18,30 +18,14 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   # tools
-  gem.add_development_dependency "rails3-generators"
-  gem.add_development_dependency "letter_opener"
-  gem.add_development_dependency "database_cleaner"
-  gem.add_development_dependency "yajl-ruby"
-  gem.add_development_dependency "crack"
-  gem.add_development_dependency "quiet_assets"
-
-  # guard
-  #gem.add_development_dependency "guard-unicorn"
-  #gem.add_development_dependency "guard-rails"
-  #gem.add_development_dependency "guard-sunspot"
-  #gem.add_development_dependency "guard-delayed"
-  #gem.add_development_dependency "guard-bundler"
-  #gem.add_development_dependency "guard-annotate"
-  #gem.add_development_dependency "guard-spork"
-  #gem.add_development_dependency "guard-rspec"
-
-  # guard support
-  #gem.add_development_dependency "rb-fsevent"
-  #gem.add_development_dependency "rb-fchange"
+  gem.add_dependency "letter_opener"
+  gem.add_dependency "database_cleaner"
+  gem.add_dependency "quiet_assets"
+  gem.add_dependency "oj"
 
   # console
-  gem.add_development_dependency "hirb"
-  gem.add_development_dependency "wirble"
-  gem.add_development_dependency "awesome_print"
-  gem.add_development_dependency "interactive_editor"
+  gem.add_dependency "hirb"
+  gem.add_dependency "wirble"
+  gem.add_dependency "awesome_print"
+  gem.add_dependency "interactive_editor"
 end
