@@ -1,0 +1,64 @@
+guard 'bundler', notify: false do
+  watch('Gemfile')
+end
+
+guard 'pow', cli: '--notify false', restart_on_start: true, restart_on_reload: false do
+  watch('.powrc')
+  watch('.powenv')
+  watch('.rvmrc')
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch('config/**/*.rb')
+  watch('lib/routes/**/*.rb')
+end
+
+guard 'livereload', host: 'tutorbuddies.dev' do
+  watch(%r{app/controllers/.+\.(rb)$})
+  watch(%r{app/models/.+\.(rb)$})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{app/views/.+\.(erb|haml|slim)$})
+  watch(%r{public/.+\.(css|js|html)})
+  watch(%r{config/locales/.+\.yml})
+  # Rails Assets Pipeline
+  watch(%r{app/assets/.+\.(js|coffee|css|scss|sass|less|jpg|jpeg|gif|png)$})
+  watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html)).*})  { |m| "/assets/#{m[2]}" }
+end
+
+guard 'rails', :host => "127.0.0.1", :port => '35728' do
+  watch('Gemfile.lock')
+  # Rails
+  watch(%r{app/controllers/.+\.(rb)$})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{app/mailers/.+\.(rb)$})
+  watch(%r{app/models/.+\.(rb)$})
+  watch(%r{app/serializers/.+\.(rb)$})
+  watch(%r{app/uploaders/.+\.rb})
+  watch(%r{app/views/.+\.(erb|haml|slim)$})
+  watch(%r{public/.+\.(css|js|html)})
+  watch(%r{config/initializers/.+\.yml})
+  watch(%r{config/locales/.+\.yml})
+  watch(%r{^lib/(.+)\.rb})
+  # Asset Pipeline
+  watch(%r{app/assets/.+\.(js|coffee|css|scss|sass|less|jpg|jpeg|gif|png)$})
+  watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html)).*})  { |m| "/assets/#{m[2]}" }
+end
+
+guard 'sunspot', :environment => 'development' do
+  watch('Gemfile.lock')
+  watch('config/sunspot.yml')
+end
+
+guard 'delayed', :environment => 'development' do
+  watch(%r{^app/(.+)\.rb})
+end
+
+guard 'rspec' do
+  watch('spec/spec_helper.rb')                        { "spec" }
+  watch('config/routes.rb')                           { "spec/routing" }
+  watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+  watch(%r{^app/(.*)(\.erb|\.haml)$})                 { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
+  watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
+end
