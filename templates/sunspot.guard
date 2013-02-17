@@ -1,0 +1,4 @@
+guard 'sunspot', :environment => 'development' do
+  watch('Gemfile.lock')
+  watch('config/sunspot.yml')
+end

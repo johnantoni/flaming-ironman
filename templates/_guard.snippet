@@ -1,12 +1,4 @@
 group :development do
-  # tools
-  gem 'rails3-generators'
-  gem 'letter_opener'
-  gem 'database_cleaner'
-  gem 'yajl-ruby'
-  gem 'crack'
-  gem 'quiet_assets'
-  
   # guard
   gem 'guard-unicorn' # monitor unicorn
   gem 'guard-rails' # monitor rails
@@ -23,17 +15,4 @@ group :development do
   # guard notification support
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'rb-fchange', :require => false
-  
-  # console
-  gem 'hirb'
-  gem 'wirble'
-  gem 'awesome_print'
-  gem 'interactive_editor'
-
-  # spreadsheet support
-  gem 'spreadsheet'
-
-  # don't use webrick
-  gem 'thin'
 end
-

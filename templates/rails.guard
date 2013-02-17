@@ -1,0 +1,18 @@
+guard 'rails', :host => "127.0.0.1", :port => '35728' do
+  watch('Gemfile.lock')
+  # Rails
+  watch(%r{app/controllers/.+\.(rb)$})
+  watch(%r{app/helpers/.+\.rb})
+  watch(%r{app/mailers/.+\.(rb)$})
+  watch(%r{app/models/.+\.(rb)$})
+  watch(%r{app/serializers/.+\.(rb)$})
+  watch(%r{app/uploaders/.+\.rb})
+  watch(%r{app/views/.+\.(erb|haml|slim)$})
+  watch(%r{public/.+\.(css|js|html)})
+  watch(%r{config/initializers/.+\.yml})
+  watch(%r{config/locales/.+\.yml})
+  watch(%r{^lib/(.+)\.rb})
+  # Asset Pipeline
+  watch(%r{app/assets/.+\.(js|coffee|css|scss|sass|less|jpg|jpeg|gif|png)$})
+  watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html)).*})  { |m| "/assets/#{m[2]}" }
+end

@@ -28,4 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "wirble"
   gem.add_dependency "awesome_print"
   gem.add_dependency "interactive_editor"
+
+  # thin (don't use webrick)
+  gem.add_dependency "thin"
 end

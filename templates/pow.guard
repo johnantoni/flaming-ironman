@@ -1,0 +1,9 @@
+guard 'pow', cli: '--notify false', restart_on_start: true, restart_on_reload: false do
+  watch('.powrc')
+  watch('.powenv')
+  watch('.rvmrc')
+  watch('Gemfile')
+  watch('Gemfile.lock')
+  watch('config/**/*.rb')
+  watch('lib/routes/**/*.rb')
+end
